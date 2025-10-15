@@ -1,10 +1,11 @@
 :root {
     --color-accent: oklch(65% 50% 0);
+    --border-color: oklch(50% 10% 200 / 40%);
 }
 
 html {
     accent-color: var(--color-accent);
-    /* background-color: black; */
+    color-scheme: light dark;
 }
 
 body {
@@ -21,7 +22,8 @@ nav {
     display: flex;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: oklch(80% 3% 200);
+    /* border-bottom-color: oklch(80% 3% 200); */
+    border-bottom-color: var(--border-color);
 }
 
 nav a {
@@ -35,17 +37,18 @@ nav a {
 
 nav a.current {
     border-bottom: 0.4em solid oklch(80% 3% 200);
+    /* border-bottom: 0.4em solid var(--border-color); */
     padding-bottom: 0.3em;
 }
 
 a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.3em;
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    /* background-color: oklch(from var(--color-accent) 95% 5% h); */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-button, input, textarea, /* inherit font for these form controls*/
-select{
+button, input, textarea, select { /* inherit font for these form controls*/
     font: inherit
 }
 
@@ -99,4 +102,15 @@ section p {
 
 p.small_header {
     font-size: 140%;
+}
+
+canvas {
+    color-scheme: dark;
+}
+
+body label.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
 }
