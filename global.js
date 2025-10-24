@@ -22,7 +22,8 @@ console.log(currentLink);
 // Step 3 - Set up navigation pages
 let pages = [
   { url: 'index.html', title: 'Home' },
-  { url: 'projects/index.html', title: 'Projects' },
+  { url: 'project2/project2_report.html', title: 'Project 2'},
+  { url: 'projects/index.html', title: 'All Projects' },
   { url: 'contact/index.html', title: 'Contact'},
   { url: 'resume/index.html', title: 'Resume'},
   { url: 'https://github.com/namtpham26', title: 'Github'}

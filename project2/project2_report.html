@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+    <nav>
+      <a href = "../index.html">Home</a>
+    </nav>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Nam Pham</strong> — <em>nap011@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Climate change is real.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="./for_img.jpg" alt="" />
+          <figcaption>Change in atmospheric CO2 concentration and sea level against respective established baseline. CO2 data is transformed by setting the earliest annual mean to be reference then taking the difference between each annual mean and reference.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Dual y-axis: I want to capture two variables and demonstrate the correlation between them. By introducing more data, I hope to establish more validity to the claim.</li>
+          <li>Color: The challenge with dual y-axis is that there might be a confusion about which axis belongs to which variable. The implementation of different colors aims to avoid such misunderstanding. A reader can quickly assign the line plot to its respective y-axis by simply color matching.</li>
+          <li>y-axis range: both y-axises have the same range. I want the 0 grid line to be the reference point for both line plots. The gridlines should also help with quick data extraction.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="./against_img.jpg" alt="" />
+          <figcaption>Absolute atmospheric CO2 concentration over time. The years on x-axis are transformed into 7 bins.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Overexaggerated title: I want readers to be preloaded with biased opinions before looking at the chart. Hence, the title is bold and big to be the first attention getter.</li>
+          <li>Color: In the checkpoint submission, each proportition has different themes for the foreground and plots. The scheme reflects the mood to intentionally mislead the reader into the bias set by the title.</li>
+          <li>Bar plot and binning: The combination of these design decisions masks my manupilation of axis. By binning the years and using bars, the data loses some granularity helping with the distortion. Overall, it is harder to perceive the relative change over the years.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>For the final submission, I decide to use less deceptive approach for the “for” proposition. The transformation for atmospheric CO2 concentration is as follows: select only monthly absolute measurements, group by year and calculate mean, set the earliest year as reference, and finally take the difference between each year and baseline. The result is a line plot similar to one representing the change in mean sea level dataset (without any transformation). Therefore, I want to try something new: dual y-axis. The intention is to establish a correlation between the changes of atmospheric CO2 concentrations and sea level thus giving more credibility to the argument that climate change is indeed real.</p>
+        <p>With the “against” proposition, I still want to employ the misleading technique in the checkpoint submission. The loaded title remains the same. The new transformations are: select only monthly absolute measurements, group by year and calculate mean, bin the years into 7 groups of 10 years each. I use a bar chart instead of line plot this time. I believe that the combination of binning and bar chart makes it harder to a reader to realize that I intentionally flatten the trendline. The width of each bar also fills up the space much more effectively and serves to distort the perception of relative change.</p>
+        <p>Overall, I find the experiment with visualization of data fun AFTER the stress is gone and me figuring out which data/transformation to use. Implementation of graphs into html webpage format is interesting. It does make me want to make changes to my page. But I think that would be work for another day. For now. I have set up a navigation tab in the main pages to access the final report and a home button on the report itself.</p>
+      </section>
+    </main>
+  </body>
+</html>
