@@ -130,3 +130,62 @@ dt {
 dd {
     grid-row: 2
 }
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.5rem;
+  list-style: none;
+  border: 2px solid #ccc;
+  flex: 1;
+}
+
+/* Layout for each legend item */
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* background-color: azure; */
+}
+
+/* The colored swatch */
+.swatch {
+  display: inline-block;   /* Important! allows width/height */
+  width: 1em;
+  aspect-ratio: 1 / 1;     /* Makes it square */
+  background-color: var(--color, gray); /* Use CSS var for color */
+  border-radius: 4px;      /* Rounded corners */
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 500ms;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
