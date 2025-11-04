@@ -189,3 +189,75 @@ path {
     fill: var(--color);
   }
 }
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr; /* dt in first col, dd in second */
+  column-gap: 1em;                 /* space between columns */
+  row-gap: 0.25em;                 /* space between rows */
+  margin: 0;                       /* remove default margins */
+  padding: 0;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr; /* dt in first col, dd in second */
+  column-gap: 1em;                 /* space between columns */
+  row-gap: 0.25em;                 /* space between rows */
+  margin: 0;                       /* remove default margins */
+  padding: 0;
+}
+
+dl.info dt {
+  font-weight: normal;             /* make labels lighter */
+  color: #666;                     /* less prominent text color */
+  margin: 0;
+}
+
+dl.info dd {
+  font-weight: bold;               /* make values stand out */
+  margin: 0;
+}
+
+#commit-tooltip {
+  background-color: rgba(255, 255, 255, 0.9); /* light mode background */
+  color: #222;                                /* dark text for light mode */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  backdrop-filter: blur(6px);
+  position: fixed;
+}
+
+@media (prefers-color-scheme: dark) {
+  #commit-tooltip {
+    background-color: rgba(30, 30, 30, 0.85); /* darker background */
+    color: #f5f5f5;                           /* light text for readability */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}

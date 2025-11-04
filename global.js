@@ -24,6 +24,7 @@ let pages = [
   { url: 'index.html', title: 'Home' },
   { url: 'project2/project2_report.html', title: 'Project 2'},
   { url: 'projects/index.html', title: 'All Projects' },
+  { url: 'meta/index.html', title: 'Meta' },
   { url: 'contact/index.html', title: 'Contact'},
   { url: 'resume/index.html', title: 'Resume'},
   { url: 'https://github.com/namtpham26', title: 'Github'}
